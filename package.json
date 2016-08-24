@@ -1,0 +1,14 @@
+{
+  "name": "logictrain",
+  "version": "1.0.0",
+  "description": "A site for building logic execution.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "language"
+  ],
+  "author": "Christopher W Buteau <cbuteau@gmail.com>",
+  "license": "MIT"
+}
