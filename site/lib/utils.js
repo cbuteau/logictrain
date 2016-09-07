@@ -36,6 +36,7 @@ define('lib/utils', [], function() {
   }
 
   Utils.prototype = {
+    idCounter: 0,
     fastForEach: function(list, callback) {
       for (var i = 0; i < list.length; i++)
       {
@@ -51,6 +52,10 @@ define('lib/utils', [], function() {
       } catch (e) {
         console.error(e);
       }
+    },
+    getNewId: function() {
+      this.idCounter++;
+      return this.idCounter;
     }
   };
 

@@ -1,0 +1,10 @@
+framework: jasmine2
+launch_in_dev:
+- Chrome
+- FireFox
+launch_in_ci:
+- PhantomJS
+src_files:
+- 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js'
+- 'site/lib/base.js'
+- 'tests/*.js'

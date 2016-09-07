@@ -1,5 +1,5 @@
 'use strict';
-define(['lib/timestamp', 'lib/stat', 'lib/utils'], function(Timestamp, Statistic, Utils) {
+define(['lib/base','lib/timestamp', 'lib/stat', 'lib/utils'], function(Base, Timestamp, Statistic, Utils) {
 
   var Utils = Utils;
 
@@ -61,29 +61,32 @@ define(['lib/timestamp', 'lib/stat', 'lib/utils'], function(Timestamp, Statistic
         });
       }
 
-      for(var i = 0; i < this.modules.length; i++) {
-        var start = new Timestamp();
-        var module = this.modules[i];
-        if (!module.stat) {
-          module.stat = new Statistic();
-        }
-        module.think();
-        var stop = new Timestamp();
-        var diff = stop.subtract(start);
-        module.stat.set((diff / 1000).toFixed(3));
-        /*
-        this.options.info(
-          {
-            type: 'info',
-            module: module.id,
-            seconds: module.stat.value,
-            min: module.stat.min,
-            max: module.stat.max
+      this.modules.iterate(this, function(that, module) {
+          var start = new Timestamp();
+          //var module = this.modules[i];
+          if (!module.stat) {
+            module.stat = new Statistic();
           }
-        );
-        */
-        this.stats[module.id] = module.stat;
-      }
+          module.think();
+          var stop = new Timestamp();
+          var diff = stop.subtract(start);
+          module.stat.set((diff / 1000).toFixed(3));
+          that.stats[module.id] = module.stat;
+      });
+
+
+      // for(var i = 0; i < this.modules.length; i++) {
+      //   var start = new Timestamp();
+      //   var module = this.modules[i];
+      //   if (!module.stat) {
+      //     module.stat = new Statistic();
+      //   }
+      //   module.think();
+      //   var stop = new Timestamp();
+      //   var diff = stop.subtract(start);
+      //   module.stat.set((diff / 1000).toFixed(3));
+      //   this.stats[module.id] = module.stat;
+      // }
 
       this._raf();
     }

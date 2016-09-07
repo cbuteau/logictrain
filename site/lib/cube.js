@@ -1,4 +1,4 @@
-define('lib/cube', [], function() {
+define('lib/cube', ['lib/entity'], function(EntityClass) {
   function Cube() {
     this.geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
 
@@ -11,6 +11,8 @@ define('lib/cube', [], function() {
       new THREE.MeshBasicMaterial({color:0xffffff}),
     ];
     this.material = new THREE.MeshFaceMaterial(this.materials);
+
+    EntityClass.call(this);
   }
 
   Cube.prototype = {
