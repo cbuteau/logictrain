@@ -1,4 +1,4 @@
-define('app/logic', ['lib/utils'], function(Utils) {
+define('app/logic', ['lib/base','lib/utils'], function(Base, Utils) {
   function LogicEngine() {
     this.id = 'LogicEngine';
     this._internal = {
@@ -15,9 +15,13 @@ define('app/logic', ['lib/utils'], function(Utils) {
 
     think: function() {
       if (this._internal.entities.length > 0) {
-        Utils.fastForEach(this._internal.entities, function(entity) {
+        this._internal.entities.iterate(null, function(nullContext, entity) {
           entity.animate();
         });
+
+        // Utils.fastForEach(this._internal.entities, function(entity) {
+        //   entity.animate();
+        // });
       }
     },
 

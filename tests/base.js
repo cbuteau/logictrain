@@ -28,6 +28,16 @@ describe('Base coverage', function() {
       expect(testObj.isSame(cloned)).toBe(true);
 
     });
+
+    it ('', function() {
+      console.log('really');
+      var start = new Date('12/11/1971');
+      var comp = new Date(start.getTime());
+
+      expect(start.isSame(comp)).toBe(true);
+      //expect(true).toBe(false);
+    });
+
   });
 
   describe('Iterate', function() {

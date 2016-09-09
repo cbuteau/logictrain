@@ -24,7 +24,7 @@ define('lib/base', [], function() {
     try {
       callback();
     } catch (e) {
-      console.error(e);
+      console.warn(e);
     }
   }
 
@@ -86,12 +86,11 @@ define('lib/base', [], function() {
   function copyType(object) {
       var type = getType(object);
       if (type === TYPECODES.OBJECT) {
-        unoptimizedTrap(function() {
-
-        });
         return cloneObject(object);
       } else if (type === TYPECODES.ARRAY) {
         return cloneArray(object);
+      } else if (type === TYPECODES.DATE) {
+        return new Date(object.getTime());
       } else {
         return object;
       }
@@ -146,16 +145,38 @@ define('lib/base', [], function() {
     }
   }
 
-  Object.prototype.clone = function() {
-      return copyType(this);
-  };
+//   Object.defineProperty(Object.prototype, 'clone', {
+//     value: function() {
+//         return copyType(this);
+//     },
+//     enumerable: false,
+// });
 
-  Object.prototype.isSame = function(compareobject) {
-    return compareTypes(this, compareobject);
-  };
+// Object.defineProperty(Object.prototype, 'isSame', {
+//    value: function(comparison) {
+//      return compareTypes(this, comparison);
+//    },
+//    enumerable: false,
+//  });
+
+  // 
+  // Object.prototype.deepclone = function() {
+  //     return copyType(this);
+  // };
+
+
+  // Object.prototype.isSame = function(compareobject) {
+  //   return compareTypes(this, compareobject);
+  // };
 
   Array.prototype.iterate = function(context, callback) {
     iterate(this, context, callback);
   };
+
+  // Object.defineProperty(Array.prototype, 'iterate', {
+  //   value: function(context, callback) {
+  //     return iterate(this, context, callback);
+  //   }
+  // });
 
 });

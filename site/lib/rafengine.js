@@ -11,11 +11,15 @@ define(['lib/base','lib/timestamp', 'lib/stat', 'lib/utils'], function(Base, Tim
 
   RafEngine.prototype = {
     _raf: function() {
-      requestAnimationFrame(this.think.bind(this));
+      this.rafToken = requestAnimationFrame(this.think.bind(this));
     },
 
     start: function() {
       this._raf();
+    },
+
+    stop: function() {
+      cancelAnimationFrame(this.rafToken);
     },
 
     queue: function(task) {
@@ -66,6 +70,11 @@ define(['lib/base','lib/timestamp', 'lib/stat', 'lib/utils'], function(Base, Tim
           //var module = this.modules[i];
           if (!module.stat) {
             module.stat = new Statistic();
+          }
+          try {
+            module.think();
+          } catch(e) {
+            console.error(module.id, e);
           }
           module.think();
           var stop = new Timestamp();

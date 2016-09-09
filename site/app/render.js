@@ -26,7 +26,7 @@ define('app/render', ['lib/base','lib/cube'], function(Base, Cube) {
     this.threeScene.add(this.threeCamera);
 
     var cube = new Cube();
-    //var cloned = cube.clone();
+    //var cloned = cube.deepclone();
     window.engine.queue(function() {
       var logic = window.engine.findModule('LogicEngine');
       logic.addEntity(cube);

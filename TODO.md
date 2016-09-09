@@ -8,11 +8,11 @@
 
 * Get Renderer Online with entities abstracted.
 
-* Get rotating cube to work.
-
 * Get Mouse events to create entities
 
 * Get Express Web Server instead of loading files from Disk.
+
+* Figure out why isSame...function breaks THREE.
 
 # Done
 
@@ -21,3 +21,5 @@
 * Stabilized Base Modules.
 
 * got Cube rotating.
+
+* Integrated base.js with alterations to Object and Array.
