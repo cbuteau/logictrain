@@ -1,5 +1,5 @@
 'use strict';
-define('lib/utils', [], function() {
+define('lib/utils', ['lib/base'], function(Base) {
   var instance = null;
 
   // MooTools singleton.
@@ -56,6 +56,12 @@ define('lib/utils', [], function() {
     getNewId: function() {
       this.idCounter++;
       return this.idCounter;
+    },
+    deepclone: function(object) {
+      return Base.deepclone(object);
+    },
+    isSame: function(object, comparison) {
+      return Base.isSame(object,comparison);
     }
   };
 

@@ -23,3 +23,7 @@
 * got Cube rotating.
 
 * Integrated base.js with alterations to Object and Array.
+
+* Iterate is a stable part of arrays.
+
+* deep clone relegated to Utils singleton.

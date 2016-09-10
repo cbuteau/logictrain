@@ -1,4 +1,4 @@
-define('app/render', ['lib/base','lib/cube'], function(Base, Cube) {
+define('app/render', ['lib/base','lib/cube', 'lib/utils'], function(Base, Cube, Utils) {
   function Renderer() {
     this.id = 'Renderer';
   }
@@ -26,7 +26,9 @@ define('app/render', ['lib/base','lib/cube'], function(Base, Cube) {
     this.threeScene.add(this.threeCamera);
 
     var cube = new Cube();
-    //var cloned = cube.deepclone();
+    var cloned = Utils.deepclone(div);
+    var compare = Utils.isSame(div, cloned);
+  //  var cloned = this.threeScene.deepclone();
     window.engine.queue(function() {
       var logic = window.engine.findModule('LogicEngine');
       logic.addEntity(cube);

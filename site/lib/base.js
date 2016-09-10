@@ -1,5 +1,17 @@
 'use strict';
 define('lib/base', [], function() {
+  var instance = null;
+
+  function Base() {
+  }
+
+Base.getInstance = function() {
+  if (instance === null) {
+    instance = new Base();
+  }
+  return instance;
+}
+
 
   var TYPECODES = {
     BOOLEAN: 0,
@@ -144,8 +156,8 @@ define('lib/base', [], function() {
       return false;
     }
   }
-
-//   Object.defineProperty(Object.prototype, 'clone', {
+//
+//   Object.defineProperty(Object.prototype, 'deepclone', {
 //     value: function() {
 //         return copyType(this);
 //     },
@@ -159,7 +171,6 @@ define('lib/base', [], function() {
 //    enumerable: false,
 //  });
 
-  // 
   // Object.prototype.deepclone = function() {
   //     return copyType(this);
   // };
@@ -169,14 +180,25 @@ define('lib/base', [], function() {
   //   return compareTypes(this, compareobject);
   // };
 
-  Array.prototype.iterate = function(context, callback) {
-    iterate(this, context, callback);
-  };
+  // Array.prototype.iterate = function(context, callback) {
+  //   iterate(this, context, callback);
+  // };
 
-  // Object.defineProperty(Array.prototype, 'iterate', {
-  //   value: function(context, callback) {
-  //     return iterate(this, context, callback);
-  //   }
-  // });
+  Object.defineProperty(Array.prototype, 'iterate', {
+    value: function(context, callback) {
+      return iterate(this, context, callback);
+    }
+  });
+
+  Base.prototype = {
+    deepclone: function(original) {
+      return copyType(original);
+    },
+    isSame: function(object, comparison) {
+      return compareTypes(object, comparison);
+    },
+  }
+
+  return Base.getInstance();
 
 });
