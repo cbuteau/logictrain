@@ -59,3 +59,8 @@ Need to investigate how require and System.import work together and do we use an
 * Iterate is a stable part of arrays.
 
 * deep clone relegated to Utils singleton.
+
+9/23/2018
+
+New Strategy for LogicTrain
+Create the first use case elevator pitch.
