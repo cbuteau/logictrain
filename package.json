@@ -4,8 +4,7 @@
   "description": "A site for building logic execution.",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/testem/testem.js",
-    "server": "node server.js"
+    "ep": "node endpoint.js test_defintion.json"
   },
   "keywords": [
     "language"
@@ -15,5 +14,21 @@
   "devDependencies": {
     "express": "4.14.0",
     "testem": "1.11.0"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "babel-register": "6.24.1",
+    "body-parser": "1.15.2",
+    "express": "4.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbuteau/logictrain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cbuteau/logictrain/issues"
+  },
+  "homepage": "https://github.com/cbuteau/logictrain#readme"
 }

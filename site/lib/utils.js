@@ -38,7 +38,8 @@ define('lib/utils', ['lib/base'], function(Base) {
   Utils.prototype = {
     idCounter: 0,
     fastForEach: function(list, callback) {
-      for (var i = 0; i < list.length; i++)
+      var len = list.length;
+      for (var i = 0; i < len; i++)
       {
         var item = list[i];
         this.unoptTrap(function() {

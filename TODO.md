@@ -1,10 +1,42 @@
 
 # TODO List
 
+## Define
+
+CONSTRUCTS
+
+IF
+begins a branch
+
+LOOP
+iterate
+
+CALL
+
+
+## High Priority
+- [ ] Get code for server loading definition and exposing service.
+- [ ] Code for loading State defintion loading
+- [ ] Code for State definition running.
+- [ ] App for building State Machine using Canvas.
+
+## Low Priority
+- [ ] At some point rewrite the Cube rendering app so it is ES6 classes.
+
+## Status
+
+Dev proceeding on es6 for state machine.
+
+However es6 site rewrite does not even load main.js...
+Need to investigate how require and System.import work together and do we use another version of THREE.
+
+## Old Tasks to be reviewed.
+
 * Use these tutorials [http://www.johannes-raida.de/tutorials/three.js/]
 [http://www.johannes-raida.de/tutorials/three.js/tutorial05/tutorial05.htm]
 
 * Get express serving static site first.
+
 
 * Get Renderer Online with entities abstracted.
 

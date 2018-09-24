@@ -1,0 +1,13 @@
+{
+  "defintions": [
+    {
+      "name": "Start"
+    }
+  ],
+  "structure":
+    {
+      "root": {
+        "Start": {}
+      }
+    }
+}
