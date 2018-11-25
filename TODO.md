@@ -60,7 +60,26 @@ Need to investigate how require and System.import work together and do we use an
 
 * deep clone relegated to Utils singleton.
 
+# Scenario
+
+They need to scan a bar code so they call the barcode service.
+The action has control over the parameters and headers sent to the webservice.
+
+
 9/23/2018
 
 New Strategy for LogicTrain
 Create the first use case elevator pitch.
+
+11/24/2018
+
+New ideas
+Write up all the constructs.
+
+IF
+WHILE
+ITERATE
+DATA
+CODE
+
+Start building a modern SPA app for constructing LogicTrain
