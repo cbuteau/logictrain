@@ -11,7 +11,7 @@ WHILE
 
 ITERATE
 
-Take a list and dipatch it...
+Take a list and dispatch it...
 
 CODE
 
@@ -27,7 +27,27 @@ DATA
 
 Data will be a multiple variable decalration editor...with allowing complex objects to be defined.
 
+CONFIG
+
+Configuration object.
+Used with data to achieve parameters.
+
+TRANSFORM
+data transformation types.
+merge.
+split.
+
 
 EXECUTE
 
 This is a webservice execution expect it to be made of configuration and code.
+
+
+```plantuml
+[*] --> TEST
+TEST --> ITERATE
+ITERATE --> EXECUTE
+EXECUTE : executes logic for
+EXECUTE : this is another string
+TEST --> EXECUTE_ERROR
+```

@@ -83,3 +83,7 @@ DATA
 CODE
 
 Start building a modern SPA app for constructing LogicTrain
+
+The if has to either use eval or parse and execute if statements.
+
+try rebooting site in vue JS
